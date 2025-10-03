@@ -1,6 +1,7 @@
 "use client";
 
 import { demos } from "@/content/demos";
+import Reveal from "@/components/Reveal";
 
 export default function DemoReel() {
   return (
@@ -21,10 +22,10 @@ export default function DemoReel() {
             const summaryId = `demo-summary-${index}`;
 
             return (
-              <article
-                key={demo.title}
-                className="group flex min-w-[280px] flex-1 flex-col justify-between gap-4 rounded-2xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/50 md:min-w-0"
-              >
+              <Reveal key={demo.title} delay={index * 80}>
+                <article
+                  className="group flex min-w-[280px] flex-1 flex-col justify-between gap-4 rounded-2xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/50 md:min-w-0"
+                >
                 <div
                   className="animate-fade-in-up overflow-hidden rounded-xl bg-slate-950/50 ring-1 ring-slate-800/50"
                   style={{ animationDelay: `${index * 80}ms` }}
@@ -54,7 +55,8 @@ export default function DemoReel() {
                 <p className="text-xs text-slate-500 border-t border-slate-800/50 pt-3">
                   Use player controls for captions or full-screen mode
                 </p>
-              </article>
+                </article>
+              </Reveal>
             );
           })}
         </div>

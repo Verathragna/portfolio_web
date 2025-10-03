@@ -21,18 +21,18 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-3">
         <a
           href="/"
-          className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent hover:from-cyan-300 hover:to-blue-400 transition-all"
+          className="text-lg font-bold bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent hover:opacity-90 transition-opacity focus:outline-none focus-ring"
         >
           Portfolio
         </a>
-        <ul className="flex space-x-8">
+        <ul className="flex space-x-6 text-sm">
           <li>
             <a
               href="/projects"
-              className="text-slate-300 hover:text-cyan-400 transition-colors relative group"
+              className="text-slate-300 hover:text-accent transition-colors relative group focus:outline-none focus-ring px-2 py-1 rounded"
             >
               Projects
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>

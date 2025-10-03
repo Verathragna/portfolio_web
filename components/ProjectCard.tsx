@@ -23,7 +23,7 @@ export default function ProjectCard({
 
   return (
     <div
-      className="group relative flex flex-col space-y-4 rounded-2xl border border-slate-800/50 bg-slate-900/50 backdrop-blur-sm p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/50"
+      className="group relative flex flex-col space-y-4 rounded-2xl border border-slate-800/50 bg-gradient-to-b from-slate-900/60 to-transparent backdrop-blur-sm p-6 card-smooth hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/15 hover:border-accent/40"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -53,7 +53,7 @@ export default function ProjectCard({
       )}
 
       <div className="relative space-y-3 flex-1">
-        <h3 className="text-2xl font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+        <h3 className="text-2xl font-semibold text-slate-100 group-hover:text-accent transition-colors">
           {title}
         </h3>
         <p className="text-slate-400 leading-relaxed">{description}</p>
@@ -63,7 +63,7 @@ export default function ProjectCard({
             {techStack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full bg-slate-800/50 border border-slate-700/50 px-3 py-1 font-medium text-slate-300"
+                className="rounded-full bg-slate-800/40 border border-slate-700/30 px-3 py-1 font-medium text-slate-300"
               >
                 {tech}
               </li>

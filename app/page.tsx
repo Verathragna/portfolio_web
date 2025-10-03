@@ -1,11 +1,14 @@
 import HeroSection from "@/components/HeroSection";
 import ProjectCard from "@/components/ProjectCard";
 import DemoReel from "@/components/DemoReel";
+import Reveal from "@/components/Reveal";
 
 export default function HomePage() {
   return (
     <section className="space-y-24">
-      <HeroSection />
+      <Reveal>
+        <HeroSection />
+      </Reveal>
 
       <div id="projects" className="space-y-10">
         <div className="text-center space-y-3">
@@ -17,21 +20,25 @@ export default function HomePage() {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
-          <ProjectCard
+          <Reveal delay={80}>
+            <ProjectCard
             title="Blueprint Generator"
             description="AI-powered tool that generates residential floorplans from custom parameters, streamlining the architectural design process."
             link="/projects/blueprint"
             videoSrc="https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4"
             posterImage="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
             techStack={["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"]}
-          />
-          <ProjectCard
+            />
+          </Reveal>
+          <Reveal delay={160}>
+            <ProjectCard
             title="Realtime Chat Platform"
             description="Full-stack chat application with real-time messaging, WebSocket connections, and secure authentication."
             link="/projects/chat"
             posterImage="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1200&q=80"
             techStack={["React", "Firebase", "WebSockets", "Node.js"]}
-          />
+            />
+          </Reveal>
         </div>
       </div>
 
