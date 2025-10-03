@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import ProjectCard from "@/components/ProjectCard";
+import DemoReel from "@/components/DemoReel";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,8 @@ export default function HomePage() {
           />
         </div>
       </div>
+
+      <DemoReel />
     </section>
   );
 }
