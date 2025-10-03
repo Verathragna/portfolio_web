@@ -2,15 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .bg-hero-gradient {
-    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 55%),
-      radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.35), transparent 55%),
-      linear-gradient(135deg, #0f172a, #1e293b 45%, #0f172a 100%);
+@layer base {
+  * {
+    @apply scroll-smooth;
   }
 
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
   .animate-blob {
-    animation: blob 18s infinite;
+    animation: blob 20s infinite;
   }
 
   .animation-delay-2000 {
@@ -23,42 +27,54 @@
 
   .animate-fade-in-up {
     opacity: 0;
-    transform: translateY(12px);
-    animation: fade-in-up 0.6s ease-out forwards;
+    transform: translateY(20px);
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-gradient {
+    background-size: 200% auto;
+    animation: gradient 4s ease infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in-up {
+    .animate-fade-in-up,
+    .animate-blob,
+    .animate-gradient {
       animation: none;
       opacity: 1;
       transform: none;
     }
   }
-
 }
 
 @keyframes blob {
-  0% {
+  0%, 100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
   33% {
-    transform: translate3d(20px, -35px, 0) scale(1.05);
+    transform: translate3d(30px, -50px, 0) scale(1.1);
   }
   66% {
-    transform: translate3d(-25px, 25px, 0) scale(0.95);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(-30px, 30px, 0) scale(0.9);
   }
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
