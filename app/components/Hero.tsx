@@ -12,7 +12,7 @@ export default function Hero() {
         <p className="text-xl md:text-2xl text-slate-400 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
           Building innovative solutions with modern technologies
         </p>
-        <div className="flex gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <a
             href="#projects"
             className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all duration-300 hover:scale-105"
