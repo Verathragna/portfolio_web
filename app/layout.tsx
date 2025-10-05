@@ -1,9 +1,14 @@
 import "../styles/globals.css";
 import { Inter } from "next/font/google";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CursorGlow from "@/components/CursorGlow";
 
 const inter = Inter({ subsets: ["latin"] });
+const BackToTop = dynamic(() => import("@/components/BackToTop"), {
+  ssr: false,
+});
 
 export const metadata = {
   title: "Your Name | Software Engineer",
@@ -13,11 +18,18 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-950 text-slate-100`}>
-        <Navbar />
-        <main className="max-w-6xl mx-auto px-4 py-10">{children}</main>
+      <body className={`${inter.className} text-slate-100`}>
+        <CursorGlow />\n        <div className="mx-auto w-full max-w-6xl px-4">
+          <Navbar />
+        </div>
+        <main className="snap-container mx-auto max-w-6xl px-4 pb-10 lg:px-6">
+          {children}
+        </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
 }
+
+

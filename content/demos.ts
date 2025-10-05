@@ -7,27 +7,27 @@ export interface DemoMeta {
 
 export const demos: DemoMeta[] = [
   {
-    title: "Generative City Builder",
+    title: "Radio Interference Analyzer",
     summary:
-      "Procedurally assembles urban layouts in real time with adjustable density and terrain inputs.",
+      "MATLAB application that flags radio frequency interference and visualizes signal strength to support faculty research.",
     videoSrc: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
     posterImage:
-      "https://images.unsplash.com/photo-1529429617124-aee3817f2c02?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1526481280695-3c4693f06ab1?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Product Customizer",
+    title: "ACME Beverage Ordering System",
     summary:
-      "AR-enhanced configurator that lets shoppers preview material swaps instantly across devices.",
+      "Course project where our four-person team built a Java and Visual Basic prototype that lets distributors place inventory orders.",
     videoSrc: "https://storage.googleapis.com/coverr-main/mp4/Namaste.mp4",
     posterImage:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Voice-Driven Analytics",
+    title: "Camp Haven Enrollment Portal",
     summary:
-      "Conversational assistant that narrates dashboards, highlights anomalies, and exports narrated clips.",
+      "User-centered Marvel prototype enabling students to register for classes with clear flows, requirements, and stakeholder dashboards.",
     videoSrc: "https://storage.googleapis.com/coverr-main/mp4/Bowl.mp4",
     posterImage:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
   },
 ];

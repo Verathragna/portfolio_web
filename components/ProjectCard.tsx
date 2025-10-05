@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
   title: string;
@@ -10,6 +12,24 @@ interface ProjectCardProps {
   posterImage?: string;
   techStack?: string[];
 }
+
+const BaseArticle = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
+  (props, ref) => <article ref={ref} {...props} />
+);
+BaseArticle.displayName = "ProjectArticle";
+
+const MotionArticle = motion(BaseArticle);
+
+const cardVariants = {
+  rest: { rotate: 0, y: 0, scale: 1 },
+  hover: {
+    rotate: 0.6,
+    y: -6,
+    scale: 1.01,
+    transition: { type: "spring", stiffness: 220, damping: 18 },
+  },
+  tap: { scale: 0.98 },
+};
 
 export default function ProjectCard({
   title,
@@ -22,18 +42,23 @@ export default function ProjectCard({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      className="group relative flex flex-col space-y-4 rounded-2xl border border-slate-800/50 bg-gradient-to-b from-slate-900/60 to-transparent backdrop-blur-sm p-6 card-smooth hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/15 hover:border-accent/40"
+    <MotionArticle
+      className="project-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800/60 bg-slate-950/70 p-6 text-center shadow-[0_45px_120px_-60px_rgba(6,182,212,0.55)]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      variants={cardVariants}
+      initial="rest"
+      animate="rest"
+      whileHover="hover"
+      whileTap="tap"
     >
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       {(videoSrc || posterImage) && (
-        <div className="relative overflow-hidden rounded-xl bg-slate-950/50 ring-1 ring-slate-800/50">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-800/60 bg-slate-950/70 shadow-[0_30px_70px_-50px_rgba(56,189,248,0.65)]">
           {videoSrc ? (
             <video
-              className="h-56 w-full object-cover transition duration-700 ease-out group-hover:scale-110"
+              className="h-56 w-full rounded-[1rem] object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
               src={videoSrc}
               poster={posterImage}
               muted
@@ -45,40 +70,58 @@ export default function ProjectCard({
             <img
               src={posterImage}
               alt={`${title} thumbnail`}
-              className="h-56 w-full object-cover transition duration-700 ease-out group-hover:scale-110"
+              className="h-56 w-full rounded-[1rem] object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
       )}
 
-      <div className="relative space-y-3 flex-1">
-        <h3 className="text-2xl font-semibold text-slate-100 group-hover:text-accent transition-colors">
-          {title}
-        </h3>
-        <p className="text-slate-400 leading-relaxed">{description}</p>
+      <div className="relative mt-6 flex flex-1 flex-col gap-4">
+        <div className="space-y-3">
+          <h3 className="text-2xl font-semibold text-slate-50 transition-colors duration-300 group-hover:text-accent">
+            {title}
+          </h3>
+          <p className="text-slate-400/90 leading-relaxed">{description}</p>
+        </div>
 
         {techStack?.length ? (
-          <ul className="flex flex-wrap gap-2 text-sm">
+          <ul className="flex flex-wrap justify-center gap-2 text-xs uppercase tracking-[0.18em] text-slate-400/80">
             {techStack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full bg-slate-800/40 border border-slate-700/30 px-3 py-1 font-medium text-slate-300"
+                className="rounded-full border border-slate-700/50 bg-slate-900/70 px-3 py-1"
               >
                 {tech}
               </li>
             ))}
           </ul>
         ) : null}
-      </div>
 
-      <a
-        href={link}
-        className="relative inline-flex items-center gap-2 font-semibold text-cyan-400 transition-all group-hover:gap-3"
-      >
-        View Project
-        <span className="transition-transform group-hover:translate-x-1">→</span>
-      </a>
-    </div>
+        <div className="pt-4">
+          <motion.div whileHover={{ x: 4 }} whileTap={{ scale: 0.96 }}>
+            <Link href={link} className="project-link">
+              View project
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-400/10 transition-transform duration-300 group-hover:translate-x-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </MotionArticle>
   );
 }
