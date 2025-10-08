@@ -24,32 +24,32 @@ const mediaVariants = {
 
 export default function DemoReel() {
   return (
-    <section id="project-media" className="section-shell section-shell--pattern">
+    <section id="published-author" className="section-shell section-shell--pattern">
       <div className="section-header">
-        <span className="section-header__eyebrow">COURSE AND RESEARCH HIGHLIGHTS</span>
-        <h2 className="section-header__title">Show, don't tell: walkthroughs in motion</h2>
+        <span className="section-header__eyebrow">PUBLISHED AUTHOR</span>
+        <h2 className="section-header__title">Published author</h2>
         <p className="section-header__lead">
-          A quick highlight reel from the lab, classroom, and late-night hack sessions. Hit play to see how I experiment, gather feedback, and iterate my way to clearer solutions.
+          A closer look at the research storytelling I have pushed into publication, pairing technical rigor with narratives that make the results accessible and actionable.
         </p>
       </div>
 
-      <div className="mt-14 overflow-x-auto pb-4 md:overflow-visible">
-        <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-8 xl:grid-cols-3">
+      <div className="mt-14">
+        <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-2">
           {demos.map((demo, index) => {
             const summaryId = `demo-summary-${index}`;
 
             return (
-              <Reveal key={demo.title} delay={index * 160} direction="up" className="min-w-[280px] flex-1 md:min-w-0">
+              <Reveal key={demo.title} delay={index * 160} direction="up" className="w-full">
                 <MotionArticle
-                  className="project-card group flex h-full flex-col justify-between gap-4 rounded-3xl border border-slate-800/60 bg-slate-950/70 p-6 shadow-[0_40px_100px_-70px_rgba(59,130,246,0.6)]"
+                  className="project-card group flex h-full flex-col justify-between gap-4 rounded-2xl border border-slate-800/60 bg-slate-950/70 p-5 shadow-[0_28px_70px_-45px_rgba(59,130,246,0.55)] overflow-visible"
                   variants={mediaVariants}
                   initial="rest"
                   animate="rest"
                   whileHover="hover"
                 >
-                  <div className="overflow-hidden rounded-2xl border border-slate-800/60 bg-slate-950/80">
+                  <div className="w-full rounded-2xl border border-slate-800/60 bg-slate-950/80 py-3 flex justify-center">
                     <video
-                      className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="w-full max-w-md h-auto object-contain object-center rounded-xl bg-slate-900 transition-transform duration-300 group-hover:scale-[1.01]"
                       src={demo.videoSrc}
                       poster={demo.posterImage}
                       controls
@@ -62,16 +62,27 @@ export default function DemoReel() {
                   </div>
 
                   <div className="space-y-3 flex-1">
-                    <h3 className="text-xl font-semibold text-slate-100 transition-colors group-hover:text-cyan-300">
+                    <h3 className="text-lg font-semibold text-slate-100 transition-colors group-hover:text-cyan-300">
                       {demo.title}
                     </h3>
                     <p id={summaryId} className="text-sm text-slate-400/90 leading-relaxed">
                       {demo.summary}
                     </p>
+                    {demo.pdfHref && (
+                      <a
+                        href={demo.pdfHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary inline-flex items-center justify-center gap-2 text-sm"
+                      >
+                        {demo.ctaLabel ?? "Read the full paper (PDF)"}
+                        <span aria-hidden="true">-&gt;</span>
+                      </a>
+                    )}
                   </div>
 
                   <p className="text-xs text-slate-500 border-t border-slate-800/60 pt-3">
-                    Use the media controls to explore each walkthrough.
+                    {demo.pdfHref ? "Use the media player for a quick overview, then open the PDF for the full publication." : "Use the media controls to explore each excerpt."}
                   </p>
                 </MotionArticle>
               </Reveal>

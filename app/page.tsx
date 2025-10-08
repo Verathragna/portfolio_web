@@ -19,35 +19,12 @@ type Experience = {
 
 const projects = [
   {
-    title: "Radio Interference Analyzer",
-    description:
-      "Designed a MATLAB dashboard paired with an Arduino-driven antenna that hunts down RF noise, then turns the raw signals into visuals classmates and faculty can actually use.",
-    link: "#project-media",
-    posterImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-    techStack: ["MATLAB", "Arduino", "Serial Comms", "Data Viz"],
-  },
-  {
     title: "Portfolio Platform",
     description:
       "Rebuilt this portfolio with Next.js, TypeScript, and Tailwind CSS so every class project, research win, and leadership story has a polished home.",
     link: "#contact",
     posterImage: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80",
     techStack: ["Next.js", "TypeScript", "Tailwind", "UI Engineering"],
-  },
-];
-
-const experienceThemes = [
-  {
-    title: "Research to impact",
-    body: "Bridge research questions to shipping code by prototyping fast, validating with data, and handing teammates clear documentation.",
-  },
-  {
-    title: "Design for people",
-    body: "Lead with empathy by turning interviews, requirements, and responsive layouts into products where classmates and stakeholders see themselves.",
-  },
-  {
-    title: "Keep teams calm",
-    body: "Keep cross-functional teams moving by balancing priorities, setting expectations, and staying calm-whether in a research lab or a rush-hour kitchen.",
   },
 ];
 
@@ -82,21 +59,6 @@ const education = {
     "User Interaction Engineering",
   ],
 };
-
-const vibeNotes = [
-  {
-    title: "Builder mindset",
-    body: "I love taking fuzzy ideas and giving them structure. Sketchbooks, whiteboards, and Figma files are usually open right next to my IDE.",
-  },
-  {
-    title: "People-first collaborator",
-    body: "Whether I am pair programming or running a pizza rush, I keep the vibe positive, communicate openly, and make sure everyone has what they need.",
-  },
-  {
-    title: "Always experimenting",
-    body: "I tinker with new APIs, automation scripts, and hardware projects so the next team I join gets fresh ideas and reusable tooling.",
-  },
-];
 
 const strengths: Strength[] = [
   {
@@ -204,20 +166,6 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto">
-          {experienceThemes.map((theme, index) => (
-            <Reveal
-              key={theme.title}
-              direction={index % 2 === 0 ? "up" : "down"}
-              delay={index * 120}
-              className="info-card experience-card text-center space-y-4"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300/90">{theme.title}</p>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300/90">{theme.body}</p>
-            </Reveal>
-          ))}
-        </div>
-
         <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-5xl mx-auto justify-items-center">
           {experiences.map((experience, index) => (
             <Reveal
@@ -261,30 +209,9 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section id="about" className="section-shell snap-section section-shell--pattern">
-        <Reveal direction="up" className="section-header">
-          <span className="section-header__eyebrow">A GLIMPSE AT MY VIBE</span>
-          <h2 className="section-header__title">The fuel behind the work</h2>
-          <p className="section-header__lead">
-            Code is better when the humans building it feel energized. Here is how I stay curious, collaborative, and ready to ship.
-          </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
-          {vibeNotes.map((note, index) => (
-            <Reveal
-              key={note.title}
-              direction={index % 2 === 0 ? "up" : "down"}
-              delay={index * 120}
-              className="info-card info-card--accent vibe-card text-center space-y-4"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300/90">{note.title}</p>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300/90">{note.body}
-            </p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <Reveal direction="up">
+        <DemoReel />
+      </Reveal>
 
       <section id="education" className="section-shell snap-section section-shell--pattern">
         <Reveal direction="up" className="section-header">
@@ -365,11 +292,6 @@ export default function HomePage() {
           </div>
         </Reveal>
       </section>
-
-      <Reveal direction="up">
-        <DemoReel />
-      </Reveal>
-
       <section id="contact" className="section-shell snap-section section-shell--contrast section-shell--pattern">
         <Reveal direction="up" className="flex flex-col items-center gap-10 text-center">
           <div className="max-w-xl space-y-5">
