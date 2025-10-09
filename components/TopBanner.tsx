@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { PROFILE_EMAIL } from "@/content/profile";
 
 const BaseDiv = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <div ref={ref} {...props} />
@@ -22,7 +23,7 @@ export default function TopBanner() {
       <p className="top-banner__text">
         <span className="top-banner__badge">Currently building</span>
         Summer &amp; Fall 2025 software engineering interviews.
-        <a className="top-banner__cta" href="mailto:turner.walker79@gmail.com">
+        <a className="top-banner__cta" href={`mailto:${PROFILE_EMAIL}`}>
           Schedule a chat
         </a>
       </p>

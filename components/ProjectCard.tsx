@@ -57,15 +57,21 @@ export default function ProjectCard({
       {(videoSrc || posterImage) && (
         <div className="relative overflow-hidden rounded-2xl border border-slate-800/60 bg-slate-950/70 shadow-[0_30px_70px_-50px_rgba(56,189,248,0.65)]">
           {videoSrc ? (
-            <video
-              className="h-56 w-full rounded-[1rem] object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
-              src={videoSrc}
-              poster={posterImage}
-              muted
-              loop
-              playsInline
-              autoPlay={isHovered}
-            />
+            <div
+              className="w-full rounded-[1rem] border border-slate-800/60 bg-black"
+              style={{ aspectRatio: "16 / 9" }}
+            >
+              <video
+                className="h-full w-full rounded-[1rem] object-contain"
+                src={videoSrc}
+                poster={posterImage}
+                preload="metadata"
+                playsInline
+                controls
+                width={1150}
+                height={Math.round((1150 * 9) / 16)}
+              />
+            </div>
           ) : (
             <img
               src={posterImage}

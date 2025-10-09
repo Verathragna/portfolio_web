@@ -4,6 +4,7 @@ import React from "react";
 import { demos } from "@/content/demos";
 import Reveal from "@/components/Reveal";
 import { motion } from "framer-motion";
+import MediaPlayer from "@/components/MediaPlayer";
 
 const BaseArticle = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   (props, ref) => <article ref={ref} {...props} />
@@ -34,7 +35,7 @@ export default function DemoReel() {
       </div>
 
       <div className="mt-14">
-        <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-2">
+        <div className="mx-auto flex w-full max-w-[1150px] flex-col items-center gap-6 px-2">
           {demos.map((demo, index) => {
             const summaryId = `demo-summary-${index}`;
 
@@ -47,19 +48,14 @@ export default function DemoReel() {
                   animate="rest"
                   whileHover="hover"
                 >
-                  <div className="w-full rounded-2xl border border-slate-800/60 bg-slate-950/80 py-3 flex justify-center">
-                    <video
-                      className="w-full max-w-md h-auto object-contain object-center rounded-xl bg-slate-900 transition-transform duration-300 group-hover:scale-[1.01]"
-                      src={demo.videoSrc}
-                      poster={demo.posterImage}
-                      controls
-                      preload="metadata"
-                      playsInline
-                      aria-describedby={summaryId}
-                    >
-                      Sorry, your browser does not support embedded videos.
-                    </video>
-                  </div>
+                  <MediaPlayer
+                    src={demo.videoSrc}
+                    poster={demo.posterImage}
+                    preload="metadata"
+                    playsInline
+                    aria-describedby={summaryId}
+                    className="transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
 
                   <div className="space-y-3 flex-1">
                     <h3 className="text-lg font-semibold text-slate-100 transition-colors group-hover:text-cyan-300">

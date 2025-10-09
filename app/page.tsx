@@ -2,6 +2,14 @@ import HeroSection from "@/components/HeroSection";
 import ProjectCard from "@/components/ProjectCard";
 import DemoReel from "@/components/DemoReel";
 import Reveal from "@/components/Reveal";
+import {
+  PROFILE_EMAIL,
+  PROFILE_LINKEDIN,
+  PROFILE_GITHUB_REPOS,
+  PROFILE_NAME,
+  PROFILE_PHONE_DISPLAY,
+  PROFILE_PHONE_TEL,
+} from "@/content/profile";
 
 type Strength = {
   title: string;
@@ -19,12 +27,28 @@ type Experience = {
 
 const projects = [
   {
-    title: "Portfolio Platform",
+    title: "House Blueprint Generator",
     description:
-      "Rebuilt this portfolio with Next.js, TypeScript, and Tailwind CSS so every class project, research win, and leadership story has a polished home.",
-    link: "#contact",
-    posterImage: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80",
-    techStack: ["Next.js", "TypeScript", "Tailwind", "UI Engineering"],
+      "Transformer-powered pipeline that turns structured property specs into full floor plans, complete with synthetic data generation, automated training, and Dockerized FastAPI + React clients for requesting SVG/JSON blueprints.",
+    link: PROFILE_GITHUB_REPOS,
+    videoSrc: "/videos/Blueprint_Gen_Demo.mp4",
+    techStack: ["Python", "FastAPI", "Transformers", "React", "Docker", "Redis"],
+  },
+  {
+    title: "Hydrate & Stretch Companion",
+    description:
+      "Electron desktop assistant that keeps remote teams healthy with dual hydration and stretch timers, weekday-aware schedules, and an Electron context bridge so React preferences stay in sync with native notifications and auto-start settings.",
+    link: PROFILE_GITHUB_REPOS,
+    posterImage: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80",
+    techStack: ["React", "TypeScript", "Electron", "Vite", "ContextBridge", "ESLint"],
+  },
+  {
+    title: "The Plumbing Lady",
+    description:
+      "Responsive React + TypeScript site for a woman-owned plumbing business in Newnan, GA, featuring service landing pages, EmailJS lead capture, animated testimonials, and teal-accent Tailwind styling tuned for mobile-first conversions.",
+    link: PROFILE_GITHUB_REPOS,
+    videoSrc: "/videos/Plumb_Demo.mp4",
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "EmailJS"],
   },
 ];
 
@@ -52,7 +76,7 @@ const education = {
   degree: "B.S. Software Engineering",
   location: "Marietta, GA",
   graduation: "Expected Dec 2025",
-  gpa: "3.4 GPA",
+  gpa: "3.4",
   coursework: [
     "Embedded Systems Analysis and Design",
     "Object-Oriented Development",
@@ -220,6 +244,20 @@ export default function HomePage() {
           <p className="section-header__lead">
             I am ready to plug into a team that values user-centered thinking, clean code, and collaborative problem solving. Coursework and research gave me a strong base, but my curiosity and willingness to learn fast will keep the momentum going.
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <a
+              href="/resume.pdf"
+              className="btn-primary inline-flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+              <span aria-hidden="true">-&gt;</span>
+            </a>
+            <span className="text-sm text-slate-400/85">
+              &nbsp;&nbsp;&nbsp;- last updated October 2025
+            </span>
+          </div>
         </Reveal>
       </section>
 
@@ -307,26 +345,37 @@ export default function HomePage() {
           <div className="w-full max-w-md info-card text-center">
             <ul className="space-y-4 text-sm text-slate-300/90">
               <li className="space-y-1">
-                <span className="block uppercase tracking-[0.26em] text-slate-400/80">Email</span>
-                <a href="mailto:turner.walker79@gmail.com" className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
-                  turner.walker79@gmail.com
+                <span className="block uppercase tracking-[0.26em] text-slate-400/80">Email&nbsp;</span>
+                <a href={`mailto:${PROFILE_EMAIL}`} className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
+                  {PROFILE_EMAIL}
                 </a>
               </li>
               <li className="space-y-1 border-t border-slate-800/60 pt-4">
-                <span className="block uppercase tracking-[0.26em] text-slate-400/80">Phone</span>
-                <a href="tel:16789726330" className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
-                  678-972-6330
+                <span className="block uppercase tracking-[0.26em] text-slate-400/80">Phone&nbsp;</span>
+                <a href={`tel:${PROFILE_PHONE_TEL}`} className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
+                  {PROFILE_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="space-y-1 border-t border-slate-800/60 pt-4">
-                <span className="block uppercase tracking-[0.26em] text-slate-400/80">LinkedIn</span>
+                <span className="block uppercase tracking-[0.26em] text-slate-400/80">LinkedIn&nbsp;</span>
                 <a
-                  href="https://www.linkedin.com/in/william-walker-597765297"
+                  href={PROFILE_LINKEDIN}
                   className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  william-walker-597765297
+                  {PROFILE_LINKEDIN.replace(/^https?:\/\//, "")}
+                </a>
+              </li>
+              <li className="space-y-1 border-t border-slate-800/60 pt-4">
+                <span className="block uppercase tracking-[0.26em] text-slate-400/80">GitHub&nbsp;</span>
+                <a
+                  href={PROFILE_GITHUB_REPOS}
+                  className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {PROFILE_GITHUB_REPOS.replace(/^https?:\/\//, "")}
                 </a>
               </li>
             </ul>

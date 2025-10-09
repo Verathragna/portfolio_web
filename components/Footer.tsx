@@ -1,3 +1,12 @@
+import {
+  PROFILE_EMAIL,
+  PROFILE_LINKEDIN,
+  PROFILE_GITHUB_REPOS,
+  PROFILE_NAME,
+  PROFILE_PHONE_DISPLAY,
+  PROFILE_PHONE_TEL,
+} from "@/content/profile";
+
 const year = new Date().getFullYear();
 
 export default function Footer() {
@@ -7,34 +16,42 @@ export default function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div className="space-y-3 text-sm text-slate-400/90">
             <p className="font-medium text-slate-200/90">
-              (c) {year} William Walker. Built with Next.js, TypeScript, and Tailwind CSS.
+              (c) {year} {PROFILE_NAME}. Built with Next.js, TypeScript, and Tailwind CSS.
             </p>
             <p>
-              Based in Griffin, Georgia and studying at Kennesaw State University. Actively looking for software engineering opportunities.
+              Based in Griffin, Georgia and studied at Kennesaw State University. Actively looking for software engineering opportunities.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-300/90">
-            <span className="uppercase tracking-[0.28em] text-slate-500">Stay in touch</span>
+            <span className="uppercase tracking-[0.28em] text-slate-500">Stay in touch </span>
             <a
-              href="mailto:turner.walker79@gmail.com"
+              href={`mailto:${PROFILE_EMAIL}`}
               className="rounded-full border border-transparent px-4 py-2 transition-colors duration-200 hover:border-accent/40 hover:text-accent"
             >
-              Email
+              Email&nbsp;
             </a>
             <a
-              href="https://www.linkedin.com/in/william-walker-597765297"
+              href={PROFILE_LINKEDIN}
               className="rounded-full border border-transparent px-4 py-2 transition-colors duration-200 hover:border-accent/40 hover:text-accent"
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              LinkedIn&nbsp;
             </a>
             <a
-              href="tel:16789726330"
+              href={PROFILE_GITHUB_REPOS}
+              className="rounded-full border border-transparent px-4 py-2 transition-colors duration-200 hover:border-accent/40 hover:text-accent"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub&nbsp;
+            </a>
+            <a
+              href={`tel:${PROFILE_PHONE_TEL}`}
               className="rounded-full border border-transparent px-4 py-2 transition-colors duration-200 hover:border-accent/40 hover:text-accent"
             >
-              678-972-6330
+              {PROFILE_PHONE_DISPLAY}
             </a>
           </div>
         </div>
