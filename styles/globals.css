@@ -36,6 +36,7 @@
       linear-gradient(180deg, #040615 0%, #050b1b 45%, #03050f 100%);
     background-attachment: fixed;
     font-feature-settings: 'cv02', 'cv03', 'cv04';
+    font-size: 1.05rem;
     position: relative;
     scroll-snap-type: y proximity;
   }
@@ -92,6 +93,22 @@
 }
 
 @layer utilities {
+  .text-base {
+    font-size: 1.06rem;
+  }
+
+  .text-lg {
+    font-size: 1.2rem;
+  }
+
+  .text-sm {
+    font-size: 0.94rem;
+  }
+
+  .text-xs {
+    font-size: 0.8rem;
+  }
+
   .bg-grid-soft {
     background-image:
       linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),

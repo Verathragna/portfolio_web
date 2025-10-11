@@ -39,7 +39,7 @@ const projects = [
     description:
       "Electron desktop assistant that keeps remote teams healthy with dual hydration and stretch timers, weekday-aware schedules, and an Electron context bridge so React preferences stay in sync with native notifications and auto-start settings.",
     link: PROFILE_GITHUB_REPOS,
-    posterImage: "https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80",
+    posterImage: "/images/hydrate-stretch-dashboard.png",
     techStack: ["React", "TypeScript", "Electron", "Vite", "ContextBridge", "ESLint"],
   },
   {
@@ -184,9 +184,9 @@ export default function HomePage() {
       <section id="experience" className="section-shell snap-section section-shell--contrast section-shell--pattern">
         <div className="section-header">
           <span className="section-header__eyebrow">EXPERIENCE</span>
-          <h2 className="section-header__title">From research labs to pizza lines</h2>
+          <h2 className="section-header__title">From research labs to the real world</h2>
           <p className="section-header__lead">
-            From studios to research labs, I jump in with classmates, faculty, and fast-moving teams to steer ideas from a question on the board to something you can actually click. Every role levels up my communication, planning, and debugging instincts.
+            I team up with labs and fast-moving crews to turn rough ideas into clickable products while sharpening communication, planning, and debugging skills.
           </p>
         </div>
 

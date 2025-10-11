@@ -38,7 +38,18 @@ const highlights = [
 
 
 
-const skillBadges = ["JS, ", "Java, ", "SQL, ", "Python, ", "HTML, ", "CSS, ", "React, ", "Git, ", "Figma, ", "MATLAB"];
+const skillBadges = [
+  { label: "JS", ariaLabel: "JavaScript" },
+  { label: "Java", ariaLabel: "Java" },
+  { label: "SQL", ariaLabel: "Structured Query Language" },
+  { label: "Python", ariaLabel: "Python" },
+  { label: "HTML", ariaLabel: "HyperText Markup Language" },
+  { label: "CSS", ariaLabel: "Cascading Style Sheets" },
+  { label: "React", ariaLabel: "React" },
+  { label: "Git", ariaLabel: "Git version control" },
+  { label: "Figma", ariaLabel: "Figma" },
+  { label: "MATLAB", ariaLabel: "MATLAB" },
+];
 
 
 
@@ -80,7 +91,7 @@ export default function HeroSection() {
 
               <span className="block bg-gradient-to-r from-slate-100 via-slate-300 to-slate-100 bg-clip-text text-transparent">
 
-                {PROFILE_NAME} here
+                {PROFILE_NAME}:&nbsp;
 
               </span>
 
@@ -129,19 +140,13 @@ export default function HeroSection() {
               <div className="flex -space-x-3">
 
                 {skillBadges.map((badge) => (
-
                   <span
-
-                    key={badge}
-
+                    key={badge.label}
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-800/50 bg-gradient-to-br from-slate-900 to-slate-950 text-sm font-semibold text-slate-300 shadow-[0_15px_35px_-25px_rgba(148,163,184,0.9)]"
-
+                    aria-label={badge.ariaLabel}
                   >
-
-                    {badge}
-
+                    {badge.label}
                   </span>
-
                 ))}
 
               </div>

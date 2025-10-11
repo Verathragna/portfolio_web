@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#031329" />
+    </linearGradient>
+    <radialGradient id="glow" cx="75%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="rgba(59,130,246,0.65)" />
+      <stop offset="60%" stop-color="rgba(59,130,246,0.0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#glow)" />
+  <g fill="none" stroke="#38bdf8" stroke-width="6" opacity="0.6">
+    <circle cx="800" cy="450" r="340" />
+    <circle cx="800" cy="450" r="260" />
+    <circle cx="800" cy="450" r="180" />
+  </g>
+  <g stroke="#38bdf8" stroke-width="4" opacity="0.35">
+    <path d="M200 720 Q800 320 1400 720" />
+    <path d="M200 580 Q800 220 1400 580" />
+  </g>
+  <g font-family="Segoe UI, sans-serif" text-anchor="middle">
+    <text x="800" y="420" fill="#e2e8f0" font-size="68" font-weight="600">RADIO INTERFERENCE ANALYZER</text>
+    <text x="800" y="500" fill="#a5f3fc" font-size="36" letter-spacing="8">LIVE RF DIAGNOSTICS • IEEE PAPER</text>
+  </g>
+  <g stroke="#818cf8" stroke-width="3" opacity="0.45">
+    <polyline points="350,680 480,560 610,610 740,520 870,590 1000,500 1130,560 1260,480" />
+  </g>
+  <circle cx="1130" cy="560" r="18" fill="#38bdf8" opacity="0.75" />
+  <circle cx="740" cy="520" r="14" fill="#818cf8" opacity="0.75" />
+</svg>

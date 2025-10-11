@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -39,13 +39,9 @@ export default function ProjectCard({
   posterImage,
   techStack,
 }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <MotionArticle
       className="project-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800/60 bg-slate-950/70 p-6 text-center shadow-[0_45px_120px_-60px_rgba(6,182,212,0.55)]"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       variants={cardVariants}
       initial="rest"
       animate="rest"
@@ -76,6 +72,8 @@ export default function ProjectCard({
             <img
               src={posterImage}
               alt={`${title} thumbnail`}
+              loading="lazy"
+              decoding="async"
               className="h-56 w-full rounded-[1rem] object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
             />
           )}
