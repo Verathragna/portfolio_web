@@ -3,8 +3,6 @@ import {
   PROFILE_LINKEDIN,
   PROFILE_GITHUB_REPOS,
   PROFILE_NAME,
-  PROFILE_PHONE_DISPLAY,
-  PROFILE_PHONE_TEL,
 } from "@/content/profile";
 
 const year = new Date().getFullYear();
@@ -46,12 +44,6 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               GitHub&nbsp;
-            </a>
-            <a
-              href={`tel:${PROFILE_PHONE_TEL}`}
-              className="rounded-full border border-transparent px-4 py-2 transition-colors duration-200 hover:border-accent/40 hover:text-accent"
-            >
-              {PROFILE_PHONE_DISPLAY}
             </a>
           </div>
         </div>

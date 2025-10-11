@@ -7,8 +7,6 @@ import {
   PROFILE_LINKEDIN,
   PROFILE_GITHUB_REPOS,
   PROFILE_NAME,
-  PROFILE_PHONE_DISPLAY,
-  PROFILE_PHONE_TEL,
 } from "@/content/profile";
 
 type Strength = {
@@ -348,12 +346,6 @@ export default function HomePage() {
                 <span className="block uppercase tracking-[0.26em] text-slate-400/80">Email&nbsp;</span>
                 <a href={`mailto:${PROFILE_EMAIL}`} className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
                   {PROFILE_EMAIL}
-                </a>
-              </li>
-              <li className="space-y-1 border-t border-slate-800/60 pt-4">
-                <span className="block uppercase tracking-[0.26em] text-slate-400/80">Phone&nbsp;</span>
-                <a href={`tel:${PROFILE_PHONE_TEL}`} className="text-cyan-300 transition-colors duration-200 hover:text-cyan-200">
-                  {PROFILE_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="space-y-1 border-t border-slate-800/60 pt-4">
