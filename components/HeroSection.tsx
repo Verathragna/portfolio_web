@@ -39,15 +39,15 @@ const highlights = [
 
 
 const skillBadges = [
-  { label: "JS", ariaLabel: "JavaScript" },
-  { label: "Java", ariaLabel: "Java" },
-  { label: "SQL", ariaLabel: "Structured Query Language" },
-  { label: "Python", ariaLabel: "Python" },
-  { label: "HTML", ariaLabel: "HyperText Markup Language" },
-  { label: "CSS", ariaLabel: "Cascading Style Sheets" },
-  { label: "React", ariaLabel: "React" },
-  { label: "Git", ariaLabel: "Git version control" },
-  { label: "Figma", ariaLabel: "Figma" },
+  { label: "JS, ", ariaLabel: "JavaScript" },
+  { label: "Java, ", ariaLabel: "Java" },
+  { label: "SQL, ", ariaLabel: "Structured Query Language" },
+  { label: "Python, ", ariaLabel: "Python" },
+  { label: "HTML, ", ariaLabel: "HyperText Markup Language" },
+  { label: "CSS, ", ariaLabel: "Cascading Style Sheets" },
+  { label: "React, ", ariaLabel: "React" },
+  { label: "Git, ", ariaLabel: "Git version control" },
+  { label: "Figma, ", ariaLabel: "Figma" },
   { label: "MATLAB", ariaLabel: "MATLAB" },
 ];
 
