@@ -10,7 +10,7 @@ const BackToTop = dynamic(() => import("@/components/BackToTop"), {
 });
 
 export const metadata = {
-  title: "Your Name | Software Engineer",
+  title: "William Walker | Software Engineer",
   description: "Portfolio showcasing projects and skills.",
 };
 
